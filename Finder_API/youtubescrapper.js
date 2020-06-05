@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 const url = 'https://www.youtube.com/';
 async function scrapeYoutube(usrIn){
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(url); //At Google.ca
 

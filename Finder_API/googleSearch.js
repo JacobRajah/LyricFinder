@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 const url = 'https://google.ca/';
 
 (async ()=>{
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil : ['load', 'domcontentloaded']}); //At Google.ca
     await page.setViewport({width: 1200, height: 1500})

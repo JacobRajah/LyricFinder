@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 async function scrapeGoogle(ytResult){
     const url = 'https://www.google.ca';
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(url); //At Google.ca
 
