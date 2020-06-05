@@ -4,7 +4,7 @@
   "description": "App for finding names of songs from lyrics",
   "main": "server.js",
   "scripts": {
-    "start": "npm start"
+    "start": "node server.js"
   },
   "author": "Jacob Rajah",
   "license": "ISC",
