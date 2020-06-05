@@ -6,6 +6,10 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
+//---------Server Work-------------
+var path = require('path');
+//---------------------------------
+
 const app = express();
 
 // parse json
@@ -18,6 +22,13 @@ const song = [
     }
 ];
 
+//-------------SERVER WORK--------------------------------
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+//------------------------------------------------------------
 
 app.get('/songfound', (req, res) => {
     //send song back to react    
