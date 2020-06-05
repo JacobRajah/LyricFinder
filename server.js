@@ -1,5 +1,5 @@
 //npm run dev to start
-const {createServer} = require('http');
+
 const api = require('./Finder_API/index');
 
 const express = require('express');
@@ -15,6 +15,8 @@ const app = express();
 // parse json
 app.use(bodyParser.json());
 
+const port = process.env.PORT || 5000;
+
 const song = [
     {
         id : 1, 
@@ -22,10 +24,8 @@ const song = [
     }
 ];
 
-const port = process.env.PORT || 5000;
-
 //-------------SERVER WORK--------------------------------
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
@@ -36,8 +36,6 @@ app.get('/songfound', (req, res) => {
     //send song back to react    
     res.json(song);
 });
-
-//app.listen(port, ()=> console.log(`Server started on port ${port}`));
 
 //Setup body parser
 app.post('/', (req, res) => {
@@ -54,9 +52,4 @@ async function getSong(lyrics){
     return songName;
 }
 
-const server = createServer(app);
-server.listen(port, err => {
-    if (err) throw err
-
-    console.log(`Server started on port ${port}`)
-});
+app.listen(port, ()=> console.log(`Server started on port ${port}`));
