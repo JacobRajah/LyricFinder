@@ -23,15 +23,15 @@ class CustomerInputs extends Component{
         }
     }
 
-    componentDidMount() {
-        this.fetchUsers();
-        this.timer = setInterval(() => this.fetchUsers(), 1000);
-    }
+    // componentDidMount() {
+    //     this.fetchUsers();
+    //     this.timer = setInterval(() => this.fetchUsers(), 1000);
+    // }
 
-    componentWillUnmount() {
-        clearInterval(this.timer);
-        this.timer = null;
-    }
+    // componentWillUnmount() {
+    //     clearInterval(this.timer);
+    //     this.timer = null;
+    // }
 
     fetchUsers = () => {
         Axios.get('/songname')
@@ -41,6 +41,8 @@ class CustomerInputs extends Component{
                     this.setState({isClicked: false});
                     this.setState({songName: temp});
                     this.setState({artist: response.data[0].artist});
+                    clearInterval(this.timer);
+                    this.timer = null;
                 }
             });
     }
@@ -54,6 +56,8 @@ class CustomerInputs extends Component{
         const data = {
             name: this.state.lyrics
         }
+        
+        this.timer = setInterval(() => this.fetchUsers(), 1000);
 
         Axios.post('/', data).then(res => {
             console.log(res.data);
