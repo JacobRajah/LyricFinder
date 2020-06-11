@@ -5,7 +5,8 @@ function SongsFound(props){
     
     return (
         <div>
-            <h5>{props.value}</h5>
+            <h5>Song Name: {props.songName}</h5>
+            <h5>Artist: {props.artist}</h5>
         </div>
     );
 }
@@ -17,8 +18,31 @@ class CustomerInputs extends Component{
         this.state = {
             lyrics: null,
             songName: null,
+            artist: null,
             isClicked: false
         }
+    }
+
+    componentDidMount() {
+        this.fetchUsers();
+        this.timer = setInterval(() => this.fetchUsers(), 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+        this.timer = null;
+    }
+
+    fetchUsers = () => {
+        Axios.get('/songname')
+            .then(response => {
+                var temp = response.data[0].name
+                if(temp !== "Searching for Matches.." && temp !== "null"){
+                    this.setState({isClicked: false});
+                    this.setState({songName: temp});
+                    this.setState({artist: response.data[0].artist});
+                }
+            });
     }
 
     handleSubmit = (event) => {
@@ -32,8 +56,7 @@ class CustomerInputs extends Component{
         }
 
         Axios.post('/', data).then(res => {
-            this.setState({isClicked: false});
-            this.setState({songName: res.data});
+            console.log(res.data);
         });
 
     }
@@ -63,7 +86,7 @@ class CustomerInputs extends Component{
                     <p><button disabled={this.state.isClicked} type="submit">Find Song</button></p>
                 </form>
 
-                <SongsFound value={this.state.songName}/>
+                <SongsFound songName={this.state.songName} artist={this.state.artist}/>
             </div>
         );
     }

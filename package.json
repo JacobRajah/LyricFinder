@@ -18,7 +18,8 @@
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "puppeteer": "^3.3.0"
+    "puppeteer": "^3.3.0",
+    "simple-youtube-api": "^5.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

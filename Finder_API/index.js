@@ -3,20 +3,18 @@
 const googleScrapper = require('./googlescrapper');
 const youtubeScrapper = require('./youtubescrapper');
 
-async function Main(lyrics){
-    if(lyrics == null){
+async function Main(page,lyrics){
+    
+    if(lyrics == null || lyrics == ""){
         return 'Not found';
     }
-    var lst = await youtubeScrapper.scrapeYoutube(lyrics);
-    console.log(lst.length);
-    for(var i = 0; i < lst.length; i++){
-        var googleResult = await googleScrapper.scrapeGoogle(lst[i]);
-        if(googleResult != 0){
-            return googleResult;
-        }
-    }
-    return 'Not found';
+    var lst = await youtubeScrapper.youtube_api(lyrics);
+    //Returns a list with song and artist
+    var data =  await googleScrapper.scrapeGoogle(page, lst);
+    return data;
 }
+
+//Main("we fought until the sun rose and i still aint been to bed").then(elem => console.log(elem[0] + " by " + elem[1]));
 
 module.exports.Main = Main;
 
