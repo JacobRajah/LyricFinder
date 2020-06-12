@@ -34,7 +34,7 @@ const song = [
 //---------Scrape setup------------
 startScrape().then(elem => {
     page = elem;
-});
+}).catch(err => console.log(err))
 //---------------------------------
 
 //-------------SERVER WORK--------------------------------
@@ -53,7 +53,7 @@ app.get('/songname', (req, res) => {
 //Setup body parser
 app.post('/', (req, res) => {
     //Upon new song request, reset struct
-    song[0].name = "Searching for Matches..";
+    song[0].name = "null";
     var lyrics = (req.body).name;
     getSong(page, lyrics).then(songName => {
         console.log(songName);
@@ -61,7 +61,7 @@ app.post('/', (req, res) => {
         song[0].artist = songName[1];
         res.send("Request Recieved and Processed");
         page = reloadGoogle(page).then(elem => page = elem);
-    });
+    }).catch(err => console.log(err));
 });
 
 async function getSong(page, lyrics){

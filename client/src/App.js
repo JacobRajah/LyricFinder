@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className="App-beta">
-        <BetaNumber beta="1.0.3"/>
+        <BetaNumber beta="1.1.1"/>
       </div>
       <div className="App-header">
         <h1>Welcome to Lyric Finder</h1>

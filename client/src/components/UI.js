@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import LoadingOverlay from 'react-loading-overlay';
 
 function SongsFound(props){
     
@@ -37,7 +38,7 @@ class CustomerInputs extends Component{
         Axios.get('/songname')
             .then(response => {
                 var temp = response.data[0].name
-                if(temp !== "Searching for Matches.." && temp !== "null"){
+                if(temp !== "null"){
                     this.setState({isClicked: false});
                     this.setState({songName: temp});
                     this.setState({artist: response.data[0].artist});
@@ -51,7 +52,6 @@ class CustomerInputs extends Component{
         event.preventDefault();
 
         this.setState({isClicked: true});
-        this.setState({songName: "Searching for Matches.."});
 
         const data = {
             name: this.state.lyrics
@@ -90,7 +90,19 @@ class CustomerInputs extends Component{
                     <p><button disabled={this.state.isClicked} type="submit">Find Song</button></p>
                 </form>
 
-                <SongsFound songName={this.state.songName} artist={this.state.artist}/>
+                <LoadingOverlay
+                active={this.state.isClicked}
+                spinner
+                styles={{
+                    overlay: (base) => ({
+                    ...base,
+                    background: 'rgba(40,44,52,10)'
+                    })
+                }}
+                text='Searching for matches...'
+                >
+                    <SongsFound songName={this.state.songName} artist={this.state.artist}/>
+                </LoadingOverlay>
             </div>
         );
     }

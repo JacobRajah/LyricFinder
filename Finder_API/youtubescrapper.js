@@ -33,9 +33,16 @@
 const YouTube = require('simple-youtube-api');
 
 async function youtube_api(lyrics) {
-    const youtube = new YouTube('AIzaSyCL68zGM27EqDKlRh7XSJe9tiDrZIMELVo');
+    // 1. AIzaSyCL68zGM27EqDKlRh7XSJe9tiDrZIMELVo
+    // 2. AIzaSyD2ILvVYnwZSJVO1sWJh9V4KpqusyfJwi0
+    const youtube = new YouTube('AIzaSyD2ILvVYnwZSJVO1sWJh9V4KpqusyfJwi0');
 
-    var results = await youtube.searchVideos(lyrics, 5)
+    try{
+        var results = await youtube.searchVideos(lyrics, 5)
+    }
+    catch{
+        console.log("Youtube Scrape Failed")
+    }
     
     var titles = results.map(entry => {
         return entry.title;
