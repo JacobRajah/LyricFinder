@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import CustomerInputs from './components/UI';
+import CustomerInputs from './components/LyricInput';
 import BetaNumber from './components/betaNumber';
 
 function App() {

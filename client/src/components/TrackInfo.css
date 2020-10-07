@@ -1,0 +1,28 @@
+.CoverArt{
+    width: 350px;
+    height: 350px;
+    float: left;
+  }
+
+.TrackPlate{
+    width: auto; 
+    height: auto; 
+    padding: 10%;
+    margin-top: 200px;
+    padding-bottom: 10%;
+}
+
+.SongInfo{
+    width: 1000px;
+    float: center;
+    padding-left: 10%;
+}
+
+.SongInfo h5{
+    margin: 0px;
+    font-size: 30px;
+}
+
+.SongInfo p{
+    font-size: 20px;
+}

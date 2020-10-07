@@ -1,14 +1,14 @@
 //npm run dev to start
 
-const api = require('./Finder_API/index');
+const api = require('./server/index');
+
+const requestSongData = require('./server/requestSongData');
 
 const express = require('express');
 
 const bodyParser = require('body-parser');
 
-//---------Server Work-------------
 var path = require('path');
-//---------------------------------
 
 //---------Scrape setup------------
 const puppeteer = require('puppeteer');
@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
+//----------Initialize Data Structures--------------
 const song = [
     {
         id : 1, 
@@ -31,38 +32,63 @@ const song = [
     }
 ];
 
+var songData = {
+    coverArt: null,
+    lyrics: [],
+    path: null
+}
+
+//------------------------------------------
+
 //---------Scrape setup------------
 startScrape().then(elem => {
     page = elem;
 }).catch(err => console.log(err))
 //---------------------------------
 
-//-------------SERVER WORK--------------------------------
+//-----------------Get Requests--------------------------------
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
-//------------------------------------------------------------
 
 app.get('/songname', (req, res) => {
     //send song back to react   
     res.json(song);
 });
 
-//Setup body parser
+app.get('/songData', (req, res) => {
+    res.json(songData);
+});
+//------------------------------------------------------------
+
+//----------------Post Requests-------------------------------
 app.post('/', (req, res) => {
     //Upon new song request, reset struct
     song[0].name = "null";
     var lyrics = (req.body).name;
+    //Request song data given lyrics
     getSong(page, lyrics).then(songName => {
         console.log(songName);
         song[0].name = songName[0];
         song[0].artist = songName[1];
+
+        songData.path = null;
+        songData.lyrics = null;
+        songData.coverArt = null;
+
+        //Request cover art and lyric data
+        requestSongData.requestSongData(songName[0], songName[1]).then(resp => {
+            songData = resp;
+            console.log(resp);
+        }).catch(err => console.log(err))
+
         res.send("Request Recieved and Processed");
         page = reloadGoogle(page).then(elem => page = elem);
     }).catch(err => console.log(err));
 });
+//-----------------------------------------------------------
 
 async function getSong(page, lyrics){
     var songName = await api.Main(page, lyrics);
@@ -82,5 +108,6 @@ async function reloadGoogle(page) {
     await page.goto(url); //At google
     return page;
 }
+
 
 app.listen(port, ()=> console.log(`Server started on port ${port}`));

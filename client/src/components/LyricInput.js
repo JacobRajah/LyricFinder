@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import LoadingOverlay from 'react-loading-overlay';
+import ExpandData from './expandData';
+import TrackInfo from './TrackInfo';
+import './LyricInput.css'
 
 function SongsFound(props){
-    
-    return (
-        <div>
-            <h5>Song Name: {props.songName}</h5>
-            <h5>Artist: {props.artist}</h5>
-        </div>
-    );
+
+    if(props.songName != null){
+        return (
+            <div>
+                <h5>{props.songName}, {props.artist}</h5>
+            </div>
+        );
+    }
+
+    return null;
 }
 
 class CustomerInputs extends Component{
@@ -20,19 +26,31 @@ class CustomerInputs extends Component{
             lyrics: null,
             songName: null,
             artist: null,
-            isClicked: false
+            isClicked: false,
+            coverArt: null,
+            geniusLyrics: null,
+            expand: false
         }
+        this.myRef = React.createRef();
     }
 
-    // componentDidMount() {
-    //     this.fetchUsers();
-    //     this.timer = setInterval(() => this.fetchUsers(), 1000);
-    // }
+    fetchReq = () => {
+        Axios.get('/songData').then(response => {
+            if(response.data.path != null){
+                // Stop the timer
+                clearInterval(this.timer);
+                this.timer = null;
 
-    // componentWillUnmount() {
-    //     clearInterval(this.timer);
-    //     this.timer = null;
-    // }
+                this.setState({geniusLyrics: response.data.lyrics});
+                this.setState({coverArt: response.data.coverArt});
+                this.setState({expand: true});
+            }
+            else if(response.data.path === "Not found"){
+                clearInterval(this.timer);
+                this.timer = null;
+            }
+        })
+    }
 
     fetchUsers = () => {
         Axios.get('/songname')
@@ -44,6 +62,7 @@ class CustomerInputs extends Component{
                     this.setState({artist: response.data[0].artist});
                     clearInterval(this.timer);
                     this.timer = null;
+                    this.timer = setInterval(() => this.fetchReq(), 500);
                 }
             });
     }
@@ -52,6 +71,7 @@ class CustomerInputs extends Component{
         event.preventDefault();
 
         this.setState({isClicked: true});
+        this.setState({expand:false});
 
         const data = {
             name: this.state.lyrics
@@ -103,6 +123,12 @@ class CustomerInputs extends Component{
                 >
                     <SongsFound songName={this.state.songName} artist={this.state.artist}/>
                 </LoadingOverlay>
+
+                <ExpandData myRef={this.myRef} expand ={this.state.expand}></ExpandData>
+
+                <TrackInfo myRef={this.myRef} coverArt={this.state.coverArt} lyrics={this.state.geniusLyrics} 
+                songName={this.state.songName} artist={this.state.artist}/>
+
             </div>
         );
     }

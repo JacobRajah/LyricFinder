@@ -18,7 +18,7 @@ async function scrapeGoogle(page, ytResultList){
     }
 
     //If reached here then no results found
-    return ['Title not found', ''];
+    return ['Not found', ''];
 
 }
 

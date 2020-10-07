@@ -6,7 +6,7 @@ const youtubeScrapper = require('./youtubescrapper');
 async function Main(page,lyrics){
     
     if(lyrics == null || lyrics == ""){
-        return 'Not found';
+        return ['Not found', ''];
     }
     var lst = await youtubeScrapper.youtube_api(lyrics);
     //Returns a list with song and artist
