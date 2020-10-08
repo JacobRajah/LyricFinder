@@ -23,7 +23,7 @@ class CustomerInputs extends Component{
     constructor(props){
         super(props);
         this.state = {
-            lyrics: null,
+            lyrics: 'Type lyrics below to find song',
             songName: null,
             artist: null,
             isClicked: false,
@@ -86,12 +86,14 @@ class CustomerInputs extends Component{
     }
 
     handleInputChange = (event) => {
-        console.log(event.target.name);
+        if(this.state.lyrics === 'Type lyrics below to find song'){
+            this.setState({ lyrics: null});
+        }
         this.setState({ lyrics : event.target.value})
     }
 
     handleReset = () => {
-        this.setState({lyrics: null})
+        this.setState({lyrics: 'Type lyrics below to find song'})
     }
 
     render() {
@@ -99,8 +101,6 @@ class CustomerInputs extends Component{
         return(
 
             <div>
-                 
-                <h3>Type lyrics below to find song</h3>
                 <p>{this.state.lyrics}</p>
                 <form onSubmit={this.handleSubmit}>
                     <p>
@@ -127,7 +127,7 @@ class CustomerInputs extends Component{
                 <ExpandData myRef={this.myRef} expand ={this.state.expand}></ExpandData>
 
                 <TrackInfo myRef={this.myRef} coverArt={this.state.coverArt} lyrics={this.state.geniusLyrics} 
-                songName={this.state.songName} artist={this.state.artist}/>
+                songName={this.state.songName} artist={this.state.artist} expand={this.state.expand}/>
 
             </div>
         );

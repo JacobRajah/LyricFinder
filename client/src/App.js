@@ -1,16 +1,15 @@
 import React from 'react';
 import './App.css';
 import CustomerInputs from './components/LyricInput';
-import BetaNumber from './components/betaNumber';
+import TopBar from './components/topbar';
 
 function App() {
   return (
     <div className="App">
       <div className="App-beta">
-        <BetaNumber beta="1.1.1"/>
+        <TopBar></TopBar>
       </div>
       <div className="App-header">
-        <h1>Welcome to Lyric Finder</h1>
         <CustomerInputs></CustomerInputs>
       </div>
     </div>

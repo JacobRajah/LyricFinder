@@ -16,7 +16,8 @@
 }
 
 .App-beta{
-  text-align: left;
+  text-align: right;
+  padding-right: 1em;
   font-size: 10px;
   color: white;
 }
