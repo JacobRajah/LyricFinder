@@ -18,5 +18,7 @@
     display: block;
     margin: 0px; 
     position: fixed;
-    
+    background-color: #282c34;
+    width: 100%;
+    text-align: left;
 }

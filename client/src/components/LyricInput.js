@@ -15,7 +15,9 @@ function SongsFound(props){
         );
     }
 
-    return null;
+    return (
+        <div></div>
+    );
 }
 
 class CustomerInputs extends Component{
@@ -118,13 +120,14 @@ class CustomerInputs extends Component{
                         styles={{
                             overlay: (base) => ({
                             ...base,
-                            background: 'rgba(40,44,52,10)'
+                            background: 'rgba(181, 181, 181, 0.1)'
                             })
                         }}
                         text='Searching for matches...'
                         >
                             <SongsFound songName={this.state.songName} artist={this.state.artist}/>
                         </LoadingOverlay>
+                        
                     </div>
                 </div>
                 <div className="TrackData">

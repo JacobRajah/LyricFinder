@@ -34,11 +34,18 @@ async function requestSongData(Track, Artist){
     
     var apiData = await axios.get(url, {headers})
 
-    //Data recieved from Genius.com
-    apiData = ((apiData.data).response.hits[0]).result;
-    //Store relevant data
-    songData.coverArt = apiData.song_art_image_thumbnail_url;
-    songData.path = apiData.url;
+    try {
+        //Data recieved from Genius.com
+        apiData = ((apiData.data).response.hits[0]).result;
+        //Store relevant data
+        songData.coverArt = apiData.song_art_image_thumbnail_url;
+        songData.path = apiData.url;
+    }
+    catch {
+        //Fix functionality
+        songData.coverArt = "../images/IMG_0094.jpg"
+        songData.path = ""
+    }
 
     //Accessing lyric populating api
     if((songData.path).includes("https://") == true){
@@ -55,17 +62,17 @@ async function requestSongData(Track, Artist){
         //console.log(lyrics.data.message.body.lyrics.lyrics_body);
         try{
             songData.lyrics = lyrics.data.message.body.lyrics.lyrics_body;
+            // Attempt to strip lyrics of excess
+            var pos = songData.lyrics.indexOf("*******");
+            songData.lyrics = songData.lyrics.substr(0,pos)
+            
         }
         catch{
             songData.lyrics = "Not Found"
-        }
-
-            
-    }
-    
+        }     
+    }    
     return songData;
-
 }
 
-//requestSongData("I want you back", "Jackson 5").then(lyrics => console.log(lyrics)).catch(err => console.log(err))
+//requestSongData("Ballin'", "Mustard").then(lyrics => console.log(lyrics)).catch(err => console.log(err))
 module.exports.requestSongData = requestSongData;
