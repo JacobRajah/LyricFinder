@@ -1,0 +1,37 @@
+.UserIn {
+    background-image: url("../images/IMG_0135.PNG");
+
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-height: 100vh;
+    margin-top: 6px;
+  }
+
+  .TrackData {
+    background-image: url("../images/IMG_0136.PNG");
+
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 30em;
+    min-height: 100vh;
+  }
+
+  .UserBox {
+      background: rgba(181, 181, 181, 0.9);
+      display: inline-block;
+      text-align: center;
+      width: 30em;
+      height: 15em;
+      
+  }

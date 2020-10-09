@@ -3,4 +3,20 @@
     padding-left: 1em;
     text-align: left;
     font-family: 'Bangers';
+    display: inline-block;
+}
+
+.Redirects {
+    padding-top: 0.1em;
+    padding-left: 2em;
+    text-align: left;
+    font-family: 'Bangers';
+    display: inline-block;    
+}
+
+.Nav {
+    display: block;
+    margin: 0px; 
+    position: fixed;
+    
 }

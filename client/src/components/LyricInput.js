@@ -101,33 +101,39 @@ class CustomerInputs extends Component{
         return(
 
             <div>
-                <p>{this.state.lyrics}</p>
-                <form onSubmit={this.handleSubmit}>
-                    <p>
-                        <input type="text" placeholder='Type Lyrics Here' name='name' onChange={this.handleInputChange}/>
-                        <button type="reset" onClick={this.handleReset}>X</button>
-                    </p>
-                    <p><button disabled={this.state.isClicked} type="submit">Find Song</button></p>
-                </form>
+                <div className="UserIn">
+                    <div className="UserBox">
+                        <p>{this.state.lyrics}</p>
+                        <form onSubmit={this.handleSubmit}>
+                            <p>
+                                <input type="text" placeholder='Type Lyrics Here' name='name' onChange={this.handleInputChange}/>
+                                <button type="reset" onClick={this.handleReset}>X</button>
+                            </p>
+                            <p><button disabled={this.state.isClicked} type="submit">Find Song</button></p>
+                        </form>
 
-                <LoadingOverlay
-                active={this.state.isClicked}
-                spinner
-                styles={{
-                    overlay: (base) => ({
-                    ...base,
-                    background: 'rgba(40,44,52,10)'
-                    })
-                }}
-                text='Searching for matches...'
-                >
-                    <SongsFound songName={this.state.songName} artist={this.state.artist}/>
-                </LoadingOverlay>
+                        <LoadingOverlay
+                        active={this.state.isClicked}
+                        spinner
+                        styles={{
+                            overlay: (base) => ({
+                            ...base,
+                            background: 'rgba(40,44,52,10)'
+                            })
+                        }}
+                        text='Searching for matches...'
+                        >
+                            <SongsFound songName={this.state.songName} artist={this.state.artist}/>
+                        </LoadingOverlay>
+                    </div>
+                </div>
+                <div className="TrackData">
+                    <ExpandData myRef={this.myRef} expand ={this.state.expand}></ExpandData>
 
-                <ExpandData myRef={this.myRef} expand ={this.state.expand}></ExpandData>
+                    <TrackInfo myRef={this.myRef} coverArt={this.state.coverArt} lyrics={this.state.geniusLyrics} 
+                    songName={this.state.songName} artist={this.state.artist} expand={this.state.expand}/>
 
-                <TrackInfo myRef={this.myRef} coverArt={this.state.coverArt} lyrics={this.state.geniusLyrics} 
-                songName={this.state.songName} artist={this.state.artist} expand={this.state.expand}/>
+                </div>
 
             </div>
         );

@@ -8,7 +8,7 @@
 
 .App-header {
   min-height: 100vh;
-  margin-top: 100px;
+  margin-top: 50px;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -20,4 +20,10 @@
   padding-right: 1em;
   font-size: 10px;
   color: white;
+}
+
+.UserIn {
+  padding-top: 8em;
+  padding-bottom: 3em;
+  
 }

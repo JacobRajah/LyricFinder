@@ -10,7 +10,7 @@ function App() {
         <TopBar></TopBar>
       </div>
       <div className="App-header">
-        <CustomerInputs></CustomerInputs>
+          <CustomerInputs></CustomerInputs> 
       </div>
     </div>
   );
