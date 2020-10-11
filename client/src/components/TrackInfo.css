@@ -8,10 +8,15 @@
 
 .TrackPlate{
     margin-top: 150px; 
-    background: rgba(181, 181, 181, 0.9);
+    background: rgba(40, 44, 52, 0.7);
+    background: rgba(40, 44, 52, 0.7);
+    outline-style: solid;
+    outline-color:rgba(255, 255, 255, 0.712);
+    outline-width: 0.08em;
     display: inline-block;
     width: 40em;
     height: 20em;
+    overflow: scroll;
 }
 
 .SongInfo{

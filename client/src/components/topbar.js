@@ -6,10 +6,11 @@ class TopBar extends Component {
         return (
             <div className="Nav">
                 <h1 className="WebName">LYRIC FYNDER</h1>
-                <h1 className="Redirects">SEARCH</h1>
                 <h1 className="Redirects">TOP CHARTS</h1>
                 <h1 className="Redirects">TRENDING</h1>
+                <h1 className="Redirects">SEARCH</h1>
                 <h1 className="Redirects">ABOUT</h1>
+                <img src={require("../images/spotify.png")} className="RedirectsIMG" alt="spotify"></img>
             </div>
         )};
 }

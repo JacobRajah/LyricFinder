@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "puppeteer": "^3.3.0",
+    "react-icons": "^3.11.0",
     "react-loading-overlay": "^1.0.1",
     "simple-youtube-api": "^5.2.1"
   },

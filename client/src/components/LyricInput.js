@@ -4,6 +4,7 @@ import LoadingOverlay from 'react-loading-overlay';
 import ExpandData from './expandData';
 import TrackInfo from './TrackInfo';
 import './LyricInput.css'
+import {FaArrowCircleUp} from 'react-icons/fa';
 
 function SongsFound(props){
 
@@ -35,6 +36,10 @@ class CustomerInputs extends Component{
         }
         this.myRef = React.createRef();
     }
+
+    scrollTop = () =>{
+        window.scrollTo({top: 0, behavior: 'smooth'});
+     };
 
     fetchReq = () => {
         Axios.get('/songData').then(response => {
@@ -120,7 +125,7 @@ class CustomerInputs extends Component{
                         styles={{
                             overlay: (base) => ({
                             ...base,
-                            background: 'rgba(181, 181, 181, 0.1)'
+                            background: 'rgba(40, 44, 52, 0.1);'
                             })
                         }}
                         text='Searching for matches...'
@@ -135,6 +140,15 @@ class CustomerInputs extends Component{
 
                     <TrackInfo myRef={this.myRef} coverArt={this.state.coverArt} lyrics={this.state.geniusLyrics} 
                     songName={this.state.songName} artist={this.state.artist} expand={this.state.expand}/>
+
+                    <div className="Top">
+                        <FaArrowCircleUp 
+                        className="scrollTop" 
+                        onClick={this.scrollTop} 
+                        style={{height: 40, display: 'flex'}}
+                        size={70}
+                        />
+                    </div>
 
                 </div>
 
