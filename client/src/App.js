@@ -1,19 +1,24 @@
-import React from 'react';
-import './App.css';
-import CustomerInputs from './components/LyricInput';
-import TopBar from './components/topbar';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Home from './components/home';
+import TopCharts from './components/TopCharts';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="App-beta">
-        <TopBar></TopBar>
+class App extends Component {
+  render() {
+    const App = () => (
+      <div>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/topcharts' component={TopCharts}/>
+        </Switch>
       </div>
-      <div className="App-header">
-          <CustomerInputs></CustomerInputs> 
-      </div>
-    </div>
-  );
+    )
+    return (
+      <Switch>
+        <App/>
+      </Switch>
+    );
+  }
 }
 
 export default App;
