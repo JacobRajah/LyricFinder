@@ -1,0 +1,38 @@
+.WebName {
+    padding-top: 0.1em;
+    padding-left: 1em;
+    text-align: left;
+    font-family: 'BANGERS';
+    display: inline-block;
+    color: white;
+}
+
+.Redirects {
+    padding-top: 0.1em;
+    padding-left: 2em;
+    text-align: left;
+    font-family: 'Bangers';
+    display: inline-block;
+    color: white;    
+}
+
+.Nav {
+    display: block;
+    margin: 0px; 
+    position: fixed;
+    background-color: #282c34;
+    width: 100%;
+    text-align: left;
+}
+
+.RedirectsIMG {
+    position: absolute;
+    right: 0px;
+    padding-right: 40px;
+    padding-top: 8px;
+    text-align: left;
+    font-family: 'Bangers';
+    display: inline-block;
+    width: 10mm;
+    height: 10mm;    
+}

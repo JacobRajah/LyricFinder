@@ -1,0 +1,14 @@
+.trending {
+    background-image: url(../../images/trending.jpeg);
+
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-height: 100vh;
+    padding-top: 14em;
+}
