@@ -5,15 +5,17 @@
     font-family: 'BANGERS';
     display: inline-block;
     color: white;
+    font-size: 10px;
 }
 
 .Redirects {
     padding-top: 0.1em;
-    padding-left: 2em;
+    padding-left: 1em;
     text-align: left;
     font-family: 'Bangers';
     display: inline-block;
-    color: white;    
+    color: white;
+    font-size: 10px;    
 }
 
 .Nav {
@@ -28,11 +30,54 @@
 .RedirectsIMG {
     position: absolute;
     right: 0px;
-    padding-right: 40px;
+    padding-right: 10px;
     padding-top: 8px;
     text-align: left;
     font-family: 'Bangers';
     display: inline-block;
-    width: 10mm;
-    height: 10mm;    
+    width: 4mm;
+    height: 4mm;    
+}
+
+@media screen and (min-width: 862px){
+    .WebName {
+        padding-top: 0.1em;
+        padding-left: 1em;
+        text-align: left;
+        font-family: 'BANGERS';
+        display: inline-block;
+        color: white;
+        font-size: 24px;
+    }
+
+    .Redirects {
+        padding-top: 0.1em;
+        padding-left: 2em;
+        text-align: left;
+        font-family: 'Bangers';
+        display: inline-block;
+        color: white;
+        font-size: 24px;    
+    }
+
+    .Nav {
+        display: block;
+        margin: 0px; 
+        position: fixed;
+        background-color: #282c34;
+        width: 100%;
+        text-align: left;
+    }
+
+    .RedirectsIMG {
+        position: absolute;
+        right: 0px;
+        padding-right: 40px;
+        padding-top: 12px;
+        text-align: left;
+        font-family: 'Bangers';
+        display: inline-block;
+        width: 10mm;
+        height: 10mm;    
+    }
 }

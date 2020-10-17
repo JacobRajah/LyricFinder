@@ -29,6 +29,20 @@
   }
 
   .UserBox {
+    background: rgba(40, 44, 52, 0.7);
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 5px 10px black;
+    display: inline-block;
+    text-align: center;
+    width: 15em;
+    height: 10em;
+    
+}
+
+  @media screen and (min-width: 862px){
+
+    .UserBox {
       background: rgba(40, 44, 52, 0.7);
       border: 1px solid black;
       padding: 10px;
@@ -39,6 +53,8 @@
       height: 15em;
       
   }
+
+}
 
   .Top {
     position: absolute;
