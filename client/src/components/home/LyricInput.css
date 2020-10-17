@@ -30,9 +30,9 @@
 
   .UserBox {
       background: rgba(40, 44, 52, 0.7);
-      outline-style: solid;
-      outline-color:rgba(255, 255, 255, 0.712);
-      outline-width: 0.08em;
+      border: 1px solid black;
+      padding: 10px;
+      box-shadow: 5px 10px black;
       display: inline-block;
       text-align: center;
       width: 30em;
