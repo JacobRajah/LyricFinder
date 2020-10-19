@@ -40,6 +40,13 @@
     
 }
 
+.Top {
+  position: absolute;
+  right: 0px;
+  padding-right: 20px;
+  color: black;
+}
+
   @media screen and (min-width: 862px){
 
     .UserBox {
@@ -54,10 +61,11 @@
       
   }
 
-}
-
   .Top {
     position: absolute;
     right: 0px;
-    padding-right: 80px;
+    padding-right: 20px;
+    color: white;
   }
+
+}

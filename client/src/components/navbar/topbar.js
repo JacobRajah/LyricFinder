@@ -22,8 +22,9 @@ class TopBar extends Component {
                 <Link to={'./about'}>
                     <h1 className="Redirects">ABOUT</h1>
                 </Link>
-
-                <img src={require("../../images/spotify.png")} className="RedirectsIMG" alt="spotify"></img>
+                <a href={'https://www.spotify.com/us/'}>
+                    <img src={require("../../images/spotify.png")} className="RedirectsIMG" alt="spotify"></img>
+                </a>
             </div>
         )};
 }

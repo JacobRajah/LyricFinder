@@ -47,7 +47,7 @@
         font-family: 'BANGERS';
         display: inline-block;
         color: white;
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .Redirects {
@@ -57,7 +57,7 @@
         font-family: 'Bangers';
         display: inline-block;
         color: white;
-        font-size: 24px;    
+        font-size: 20px;    
     }
 
     .Nav {
@@ -73,7 +73,7 @@
         position: absolute;
         right: 0px;
         padding-right: 40px;
-        padding-top: 12px;
+        padding-top: 10px;
         text-align: left;
         font-family: 'Bangers';
         display: inline-block;

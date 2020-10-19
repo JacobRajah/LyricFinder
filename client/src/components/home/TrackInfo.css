@@ -1,4 +1,43 @@
 .CoverArt{
+    width: 150px;
+    height: 150px;
+    align-content: center;
+    padding-top: 60px;
+    padding-left: 20px;
+  }
+
+.TrackPlate{
+    margin-top: 150px; 
+    background: rgba(40, 44, 52, 0.7);
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 5px 10px black;
+    display: inline-block;
+    width: 15em;
+    height: 20em;
+    overflow: scroll;
+}
+.TrackPlate::-webkit-scrollbar { 
+    display: none;
+}
+
+.SongInfo{
+    float: center;
+    padding-right: 20px;
+    padding-top: 60px;
+}
+
+.SongInfo h5{
+    margin: 0px;
+    font-size: 30px;
+}
+
+.SongInfo p{
+    font-size: 20px;
+}
+
+@media screen and (min-width: 1104px){
+.CoverArt{
     width: 350px;
     height: 350px;
     float: left;
@@ -17,6 +56,9 @@
     height: 20em;
     overflow: scroll;
 }
+.TrackPlate::-webkit-scrollbar { 
+    display: none;
+}
 
 .SongInfo{
     float: center;
@@ -31,4 +73,6 @@
 
 .SongInfo p{
     font-size: 20px;
+}
+
 }
