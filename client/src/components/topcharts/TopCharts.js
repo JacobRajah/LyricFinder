@@ -4,6 +4,7 @@ import './TopCharts.css'
 import '../home/home.css'
 
 class TopCharts extends Component {
+
     render (){
         return (
             <div className="App">
