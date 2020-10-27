@@ -15,14 +15,33 @@ const uri = "mongodb+srv://Admin:Admin@lyricfynder.5vsum.mongodb.net/LyricFynder
 //     db.close();
 //   });
 
+//Find Value
+// dbo.collection("sample-test").findOne({}, function(err, res) {
+//   if (err) throw err;
+//   console.log(res.songName);
+//   console.log(res.Artist);
+//   db.close();
+// });
+
+//Insert many Objects
+// const sample = [{ songName: "Say So", Artist: "Doja Cat"}, { songName: "Truth Hurts", Artist: "Lizzo"}]
+// dbo.collection("sample-test").insertMany(sample);
+
+//Find All
+// dbo.collection("sample-test").find({}).toArray(function(err,res){
+//   if(err) throw err;
+//   console.log(res);
+//   db.close()
+// })
+
+// Collection Deletion
 MongoClient.connect(uri, function(err, db) {
     if (err) throw err;
     var dbo = db.db("LyricFynder");
-    const sample = { songName: "Ballin'", Artist: "Mustard ft. Roddy Rich"}
-    dbo.collection("sample-test").findOne({}, function(err, res) {
+    dbo.collection("sample-test").drop(function(err,delOK){
       if (err) throw err;
-      console.log(res.songName);
-      console.log(res.Artist);
+      if (delOK) console.log("Deleted Collection");
       db.close();
     });
+
   });

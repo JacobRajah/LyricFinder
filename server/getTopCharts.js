@@ -37,7 +37,7 @@ async function orderData(billboardLst) {
         info = billboardLst[i].split('\n');
         songname = info[0]
         artist = info[1]
-        charts.push({cover: coverArt, name: songname, artist: artist});
+        charts.push({rank: i+1, cover: coverArt, name: songname, artist: artist});
     }
 
     return charts;
@@ -79,5 +79,6 @@ async function getCoverArt(Track) {
     return coverArt;
 }
 
-getBillboard().then(response => console.log(response)).catch(err => console.log(err));
+//getBillboard().then(response => console.log(response)).catch(err => console.log(err));
 //getCoverArt('Breaking Me\nTopic & A7S').then(resp => console.log(resp))
+module.exports.getBillboard = getBillboard;
