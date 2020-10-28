@@ -14,7 +14,7 @@ async function requestSongData(Track, Artist){
         path: null
     }
     
-    const ACCESS_TOKEN = "B418NCQcIJIcycbwqph5aEa5kZrEe_2Nlhq0oLRrMPonRkw9xoOU-UlhxycKG4m5"
+    const ACCESS_TOKEN = process.env.genius
     
     const headers = {
         Authorization: `Bearer ${ACCESS_TOKEN}`
@@ -54,7 +54,7 @@ async function requestSongData(Track, Artist){
             data: {
                 format: "jsonp",
             },
-            "url":`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=${Track}&q_artist=${Artist}&apikey=a543b887074bfecac7b71fd49646074f`,
+            "url":`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=${Track}&q_artist=${Artist}&apikey=${process.env.musixmatch}`,
             "headers":{
             "Accept": "text/plain"
             }

@@ -1,5 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://Admin:Admin@lyricfynder.5vsum.mongodb.net/LyricFynder?retryWrites=true&w=majority";
+require('dotenv').config();
+const uri = process.env.DB;
 const getTopCharts = require('../getTopCharts');
 
 async function populate_topcharts() {

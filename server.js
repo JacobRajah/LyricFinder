@@ -1,13 +1,9 @@
 //npm run dev to start
-
+require('dotenv').config(); //set env
 const api = require('./server/index');
-
 const requestSongData = require('./server/requestSongData');
-
 const express = require('express');
-
 const bodyParser = require('body-parser');
-
 var path = require('path');
 
 //---------Scrape setup------------

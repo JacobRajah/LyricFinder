@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://Admin:Admin@lyricfynder.5vsum.mongodb.net/LyricFynder?retryWrites=true&w=majority";
+const uri = process.env.DB;
 
 //Creating Collection
 // dbo.createCollection("customers", function(err, res) {

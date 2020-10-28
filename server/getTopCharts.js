@@ -47,7 +47,7 @@ async function orderData(billboardLst) {
 async function getCoverArt(Track) {
     coverArt = null
 
-    const ACCESS_TOKEN = "B418NCQcIJIcycbwqph5aEa5kZrEe_2Nlhq0oLRrMPonRkw9xoOU-UlhxycKG4m5"
+    const ACCESS_TOKEN = process.env.genius;
     
     const headers = {
         Authorization: `Bearer ${ACCESS_TOKEN}`
