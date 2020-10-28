@@ -1,5 +1,4 @@
 var MongoClient = require('mongodb').MongoClient;
-require('dotenv').config();
 const uri = process.env.DB;
 const getTopCharts = require('../getTopCharts');
 

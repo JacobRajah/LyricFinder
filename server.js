@@ -1,4 +1,5 @@
 //npm run dev to start
+var MongoClient = require('mongodb').MongoClient;
 require('dotenv').config(); //set env
 const api = require('./server/index');
 const requestSongData = require('./server/requestSongData');
@@ -8,7 +9,6 @@ var path = require('path');
 
 //---------Scrape setup------------
 const puppeteer = require('puppeteer');
-
 var page;
 //---------------------------------
 
@@ -57,6 +57,20 @@ app.get('/songname', (req, res) => {
 app.get('/songData', (req, res) => {
     res.json(songData);
 });
+
+app.get('/topcharts', (req, res) => {
+    MongoClient.connect(process.env.DB, function(err,db){
+        if (err) throw err;
+        const dbo = db.db('LyricFynder');
+
+        dbo.collection('TopCharts-2020-10-28').find({}).toArray(function(err,data){
+            if (err) throw err;
+            res.json(data);
+            db.close();
+        })
+    
+    });
+})
 //------------------------------------------------------------
 
 //----------------Post Requests-------------------------------

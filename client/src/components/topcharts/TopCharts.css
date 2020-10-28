@@ -12,3 +12,62 @@
     margin-top: 6px;
     padding-top: 5.5em;
 }
+
+.charts{
+    background: rgba(40, 44, 52, 0.7);
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 5px 10px black;
+    display: inline-block;
+    text-align: center;
+    width: 15em;
+    height: 10em;
+}
+
+@media screen and (min-width: 862px){
+
+    .charts{
+        background: rgba(40, 44, 52, 0.7);
+        border: 1px solid black;
+        padding: 10px;
+        box-shadow: 5px 10px black;
+        display: inline-block;
+        text-align: center;
+        width: 25em;
+        height: 20em;
+        overflow: scroll;
+    }
+    .charts::-webkit-scrollbar { 
+        display: none;
+    }
+
+    .Track {
+        background: rgba(40, 44, 52, 0.7);
+        width: 23em;
+        height: 10em;
+        margin-left: 1em;
+        margin-top: 1em; 
+    }
+
+    .cover {
+        width: 200px;
+        height: 200px;
+        float: left;
+        padding-left: 1em;
+        padding-top: 1em;
+    }
+
+    .name {
+        font-size: 25px;
+        padding-top: 0.2em;
+        padding-left: 0.5em;
+        float: left;
+    }
+
+    .artist {
+        font-size: 10px;
+        float: left;
+        margin-top: 0.1mm;
+        padding-left: 1.5em;
+    }
+}
