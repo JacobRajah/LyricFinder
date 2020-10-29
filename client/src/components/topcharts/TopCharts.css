@@ -46,7 +46,8 @@
         width: 23em;
         height: 10em;
         margin-left: 1em;
-        margin-top: 1em; 
+        margin-top: 1em;
+        /* overflow: scroll;  */
     }
 
     .cover {
@@ -59,15 +60,26 @@
 
     .name {
         font-size: 25px;
-        padding-top: 0.2em;
+        padding-top: 0.6em;
         padding-left: 0.5em;
         float: left;
+        font-family: 'Lucida Sans';
     }
 
     .artist {
-        font-size: 10px;
+        font-size: 9px;
         float: left;
-        margin-top: 0.1mm;
-        padding-left: 1.5em;
+        margin-top: -4mm;
+        padding-left: 0.8em;
+        font-size: 0.70em;
+        font-family: fantasy;
+    }
+
+    .rank {
+        float: right;
+        padding-right: 1em;
+        font-size: 1.7em;
+        color: rgba(247, 247, 247, 0.514);
+        font-family: 'Lucida Sans';
     }
 }
