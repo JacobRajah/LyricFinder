@@ -6,11 +6,13 @@ import '../home/home.css'
 
 function Track(props) {
     return(
-        <div className="Track">
+        <div className="Track" id={props.rank}>
             <img src={props.cover} className="cover" alt="coverart"/>
-            <h2 className="rank">{props.rank}</h2>
-            <h2 className="name">{props.name}</h2>
-            <h6 className="artist">{props.artist}</h6>
+            <p className="content">
+                <p className="name">{props.name}</p>
+                <p className="artist">{props.artist}</p>
+                <h4 className="rank">{props.rank}</h4>
+            </p>
         </div>
     )
 }

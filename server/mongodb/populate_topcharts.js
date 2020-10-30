@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
+require('dotenv').config(); //set env
 const uri = process.env.DB;
 const getTopCharts = require('../getTopCharts');
 
@@ -7,7 +8,14 @@ async function populate_topcharts() {
     date = datetime.toISOString().slice(0,10);
     col = `TopCharts-${date}`; 
 
-    charts = await getTopCharts.getBillboard()
+    try {
+        charts = await getTopCharts.getBillboard()
+    }
+    catch {
+        console.log("Scrapping error")
+        return null
+    }
+    
     console.log('Billboard Data Collected');
 
     MongoClient.connect(uri, function(err,db){

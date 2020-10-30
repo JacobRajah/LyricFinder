@@ -18,6 +18,7 @@ async function getBillboard() {
         }
         catch{
             strcharts = null;
+            console.log('Error Scrapping from Billboards')
         }
         finally{
             return strcharts;
@@ -25,7 +26,14 @@ async function getBillboard() {
 
     });
     await browser.close();
-    return orderData(billboard)
+    try {
+        return orderData(billboard)
+    }
+    catch {
+        console.log('Order Data Func ERR');
+        return null
+    }
+    
 }
 
 async function orderData(billboardLst) {
@@ -63,8 +71,14 @@ async function getCoverArt(Track) {
     var query = Track.replace(/\s+/g, "%20");
     
     const url = `https://api.genius.com/search?q=${query}`
-    
-    var apiData = await axios.get(url, {headers})
+
+    try {
+        var apiData = await axios.get(url, {headers})
+    }
+
+    catch {
+        return "Nothing"
+    }
 
     try {
         //Data recieved from Genius.com
