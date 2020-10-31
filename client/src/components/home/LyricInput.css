@@ -47,6 +47,43 @@
   color: black;
 }
 
+.lyricIn {
+  border: none;
+  background-color: inherit;
+  border-bottom: 2px solid rgba(245, 245, 245, 0.582);
+  outline: none;
+  width: 30em;
+  font-size: 14px;
+  color: whitesmoke;
+}
+
+.clearIn {
+  background-color: inherit;
+  outline: none;
+  color: whitesmoke;
+  border: none;
+  border-bottom: 2px solid rgba(245, 245, 245, 0.582);
+  font-size: 14px;
+}
+
+.sendLyrics {
+  background-color: inherit; 
+  color: white; 
+  border: 2px solid rgba(245, 245, 245, 0.582);
+  transition: 0.4s;
+  width: 100px;
+  height: 30px;
+}
+
+.sendLyrics:hover {
+  background-color:rgb(40, 44, 52);
+  color: white;
+}
+
+.typed {
+  font-family: 'Bangers';
+}
+
   @media screen and (min-width: 862px){
 
     .UserBox {
