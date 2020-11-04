@@ -63,7 +63,7 @@ app.get('/topcharts', (req, res) => {
         if (err) throw err;
         const dbo = db.db('LyricFynder');
 
-        dbo.collection('TopCharts-2020-11-02').find({}).toArray(function(err,data){
+        dbo.collection('TopCharts-2020-11-04').find({}).toArray(function(err,data){
             if (err) throw err;
             res.json(data);
             db.close();
