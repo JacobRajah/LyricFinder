@@ -26,7 +26,7 @@ class CustomerInputs extends Component{
     constructor(props){
         super(props);
         this.state = {
-            lyrics: 'Type lyrics below to find song',
+            lyrics: 'Welcome to Lyric Fynder',
             songName: null,
             artist: null,
             isClicked: false,
@@ -93,14 +93,14 @@ class CustomerInputs extends Component{
     }
 
     handleInputChange = (event) => {
-        if(this.state.lyrics === 'Type lyrics below to find song'){
+        if(this.state.lyrics === 'Welcome to Lyric Fynder'){
             this.setState({ lyrics: null});
         }
         this.setState({ lyrics : event.target.value})
     }
 
     handleReset = () => {
-        this.setState({lyrics: 'Type lyrics below to find song'})
+        this.setState({lyrics: 'Welcome to Lyric Fynder'})
     }
 
     render() {

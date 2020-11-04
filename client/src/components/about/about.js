@@ -12,7 +12,7 @@ class About extends Component {
                 </div>
                 <div className="App-header">
                     <div className="about">
-                        
+                        <h1>Hi, I'm Jacob</h1>
                     </div>
                 </div>
             </div>

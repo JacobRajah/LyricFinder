@@ -10,7 +10,7 @@
     background-size: cover;
 
     min-height: 100vh;
-    margin-top: 6px;
+    margin-top: -2em;
     padding-top: 5.5em;
   }
 
@@ -36,7 +36,7 @@
     display: inline-block;
     text-align: center;
     width: 15em;
-    height: 10em;
+    height: 12em;
     
 }
 
@@ -44,7 +44,8 @@
   position: absolute;
   right: 0px;
   padding-right: 20px;
-  color: black;
+  padding-top: 2em;
+  color: rgb(40, 44, 52);
 }
 
 .lyricIn {
@@ -52,7 +53,7 @@
   background-color: inherit;
   border-bottom: 2px solid rgba(245, 245, 245, 0.582);
   outline: none;
-  width: 30em;
+  width: 15em;
   font-size: 14px;
   color: whitesmoke;
 }
@@ -81,10 +82,26 @@
 }
 
 .typed {
-  font-family: 'Bangers';
+  font-family: 'Segoe UI';
 }
 
   @media screen and (min-width: 862px){
+
+    .UserIn {
+      background-image: url("../../images/main1_background.png");
+  
+      /* Full height */
+      height: 100%; 
+    
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  
+      min-height: 100vh;
+      margin-top: 4px;
+      padding-top: 5.5em;
+    }
 
     .UserBox {
       background: rgba(40, 44, 52, 0.7);
@@ -98,11 +115,49 @@
       
   }
 
-  .Top {
-    position: absolute;
-    right: 0px;
-    padding-right: 20px;
-    color: white;
-  }
+    .Top {
+      position: absolute;
+      right: 0px;
+      padding-right: 20px;
+      margin-top: -3em;
+      color: whitesmoke;
+    }
+
+    .lyricIn {
+      border: none;
+      background-color: inherit;
+      border-bottom: 2px solid rgba(245, 245, 245, 0.582);
+      outline: none;
+      width: 30em;
+      font-size: 14px;
+      color: whitesmoke;
+    }
+    
+    .clearIn {
+      background-color: inherit;
+      outline: none;
+      color: whitesmoke;
+      border: none;
+      border-bottom: 2px solid rgba(245, 245, 245, 0.582);
+      font-size: 14px;
+    }
+    
+    .sendLyrics {
+      background-color: inherit; 
+      color: white; 
+      border: 2px solid rgba(245, 245, 245, 0.582);
+      transition: 0.4s;
+      width: 100px;
+      height: 30px;
+    }
+    
+    .sendLyrics:hover {
+      background-color:rgb(40, 44, 52);
+      color: white;
+    }
+    
+    .typed {
+      font-family: 'Segoe UI';
+    }
 
 }
