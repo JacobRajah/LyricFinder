@@ -112,10 +112,10 @@ class CustomerInputs extends Component{
                     <div className="UserBox">
                         <p className="typed">{this.state.lyrics}</p>
                         <form onSubmit={this.handleSubmit}>
-                            <p>
+                            <div className="inputfield">
                                 <input type="text" className="lyricIn" placeholder='Type Lyrics Here' name='name' onChange={this.handleInputChange}/>
                                 <button type="reset" className="clearIn" onClick={this.handleReset}>X</button>
-                            </p>
+                            </div>
                             <p><button disabled={this.state.isClicked} type="submit" className="sendLyrics">Find Song</button></p>
                         </form>
 

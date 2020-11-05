@@ -126,7 +126,6 @@
     .lyricIn {
       border: none;
       background-color: inherit;
-      border-bottom: 2px solid rgba(245, 245, 245, 0.582);
       outline: none;
       width: 30em;
       font-size: 14px;
@@ -138,8 +137,13 @@
       outline: none;
       color: whitesmoke;
       border: none;
-      border-bottom: 2px solid rgba(245, 245, 245, 0.582);
       font-size: 14px;
+    }
+
+    .inputfield {
+      border-bottom: 2px solid rgba(245, 245, 245, 0.582);
+      margin-left: 5em;
+      margin-right: 5em;
     }
     
     .sendLyrics {
