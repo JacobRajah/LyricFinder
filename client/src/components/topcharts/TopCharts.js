@@ -72,7 +72,7 @@ class TopCharts extends Component {
                 </div>
                 <div className="App-header">
                     <div className="TC">
-                        <h2>Billboard Top 100</h2>
+                        <h2 className="title">Billboard Top 100</h2>
                         <Charts charts={this.charts} populated={this.state.populated}></Charts>
                     </div>
                 </div>
