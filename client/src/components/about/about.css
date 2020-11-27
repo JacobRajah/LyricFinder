@@ -24,12 +24,7 @@
 }
 
 .Main[move='1'] {
-    animation: move 2s 1;
-}
-
-@keyframes move {
-    0%   {background-color:rgba(255, 0, 0, 0); left:0px; top:0px;}
-    100% {background-color:rgba(255, 0, 0, 0); left:300px; top:0px;}
+    animation: fadeOut ease-out 1s;
 }
 
 .Hello {
@@ -40,4 +35,110 @@
     padding-left: 1em;
     display: inline;
     color: mediumblue;
+}
+
+.options {
+    display: block;
+    position: relative;
+    margin-top: -3em;
+    animation: fadeIn ease-in 1s;
+}
+
+.software {
+    display: inline-block;
+    border: 2px solid whitesmoke;
+    width: 130px;
+    height: 35px;
+    padding-top: 2.6px;
+    transition: 0.4s;
+    color: whitesmoke;
+}
+
+.work {
+    margin-left: 1em;
+    display: inline-block;
+    border: 2px solid whitesmoke;
+    width: 210px;
+    height: 35px;
+    padding-top: 2.6px;
+    transition: 0.4s;
+    color: whitesmoke;
+}
+
+.projects {
+    margin-left: 1em;
+    padding-left: 1.5px;
+    display: inline-block;
+    border: 2px solid whitesmoke;
+    width: 120px;
+    height: 35px;
+    padding-top: 2.6px;
+    transition: 0.4s;
+    color: whitesmoke;
+}
+
+.education {
+    margin-left: 1em;
+    display: inline-block;
+    border: 2px solid whitesmoke;
+    width: 140px;
+    height: 35px;
+    padding-top: 2.6px;
+    transition: 0.4s;
+    color: whitesmoke;
+}
+
+.contact {
+    margin-left: 1em;
+    display: inline-block;
+    border: 2px solid whitesmoke;
+    width: 120px;
+    height: 35px;
+    padding-top: 2.6px;
+    transition: 0.4s;
+    color: whitesmoke;
+}
+
+.software:hover {
+    background-color: rgba(103, 178, 221, 0.993);
+    cursor: pointer;
+    box-shadow: 5px 10px black;
+}
+
+.work:hover {
+    background-color: rgba(103, 178, 221, 0.993);
+    cursor: pointer;
+    box-shadow: 5px 10px black;
+}
+
+.projects:hover {
+    background-color: rgba(103, 178, 221, 0.993);
+    cursor: pointer;
+    box-shadow: 5px 10px black;
+}
+
+.education:hover {
+    background-color: rgba(103, 178, 221, 0.993);
+    cursor: pointer;
+    box-shadow: 5px 10px black;
+}
+
+.contact:hover {
+    background-color: rgba(103, 178, 221, 0.993);
+    cursor: pointer;
+    box-shadow: 5px 10px black;
+}
+
+.fade-in {
+    animation: fadeIn ease-in 2s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
 }
