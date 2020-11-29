@@ -4,14 +4,13 @@ import './about.css'
 import '../home/home.css'
 
 function Media(props) {
-    const [move, setmove] = React.useState(0)
+    const [move, setmove] = React.useState(0);
     return (
         <div className="Main" 
              onClick={() => {setmove(1);}} 
              onAnimationEnd={() => {setmove(0); props.toOptions()}} 
              move={move}>
             <h1 className="Hello">Hi, I'm Jacob</h1>
-            <h1 className="Next">{'>>'}</h1>
         </div>
     )
 }
@@ -30,8 +29,8 @@ function MediaOptions(props) {
 
 function Software(props) {
     return (
-        <div>
-            <h3>Software</h3>
+        <div className="panel">
+            <h3>Software Experience</h3>
             <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
         </div>
     )
@@ -39,7 +38,7 @@ function Software(props) {
 
 function Work(props) {
     return (
-        <div>
+        <div className="panel">
             <h3>Work</h3>
             <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
         </div>
@@ -48,7 +47,7 @@ function Work(props) {
 
 function Projects(props) {
     return (
-        <div>
+        <div className="panel">
             <h3>Projects</h3>
             <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
         </div>
@@ -57,7 +56,7 @@ function Projects(props) {
 
 function Education(props) {
     return (
-        <div>
+        <div className="panel">
             <h3>Education</h3>
             <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
         </div>
@@ -66,7 +65,7 @@ function Education(props) {
 
 function Contact(props) {
     return (
-        <div>
+        <div className="panel">
             <h3>Contact</h3>
             <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
         </div>
