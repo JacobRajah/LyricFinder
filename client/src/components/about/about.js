@@ -29,45 +29,65 @@ function MediaOptions(props) {
 
 function Software(props) {
     return (
-        <div className="panel">
-            <h3>Software Experience</h3>
-            <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
+        <div>
+            <div className="panel">
+                <h3>Software Experience</h3>
+            </div>
+            <span className="Next" onClick={() => props.backOptions()}>
+                <p className="a1"></p><p className="a2"></p>
+            </span>
         </div>
     )
 }
 
 function Work(props) {
     return (
-        <div className="panel">
-            <h3>Work</h3>
-            <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
+        <div>
+            <div className="panel">
+                <h3>Work</h3>
+            </div>
+            <span className="Next" onClick={() => props.backOptions()}>
+                <p className="a1"></p><p className="a2"></p>
+            </span>
         </div>
     )
 }
 
 function Projects(props) {
     return (
-        <div className="panel">
-            <h3>Projects</h3>
-            <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
+        <div>
+            <div className="panel">
+                <h3>Projects</h3>
+            </div>
+            <span className="Next" onClick={() => props.backOptions()}>
+                <p className="a1"></p><p className="a2"></p>
+            </span>
         </div>
     )
 }
 
 function Education(props) {
     return (
-        <div className="panel">
-            <h3>Education</h3>
-            <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
+        <div>
+            <div className="panel">
+                <h3>Education</h3>
+            </div>
+            <span className="Next" onClick={() => props.backOptions()}>
+                <p className="a1"></p><p className="a2"></p>
+            </span>
         </div>
     )
 }
 
 function Contact(props) {
     return (
-        <div className="panel">
-            <h3>Contact</h3>
-            <h1 className="Next" onClick={() => props.backOptions()}>{'>>'}</h1>
+        <div>
+            <div className="panel">
+                <h3>Contact</h3>
+            </div>
+            <span className="Next" onClick={() => props.backOptions()}>
+                <p className="a1"></p><p className="a2"></p>
+            </span>
         </div>
     )
 }

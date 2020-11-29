@@ -38,10 +38,40 @@
 }
 
 .Next {
-    padding-left: 1em;
-    display: inline;
+    float: right;
+    margin-top: 5em;
+    margin-right: 2em;
     color: mediumblue;
     cursor: pointer;
+    border: 3px solid mediumblue;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: ease-out 0.4s;
+    animation: fadeIn ease-in 1s;
+}
+
+.Next:hover {
+    background-color: mediumblue;
+    transition: all ease 0.4s;
+}
+
+.a1 {
+    margin-top: 20px;
+    width: 18px;
+    border-bottom: 5px solid white;
+    transform: skewY(-45deg);
+    display: inline-block;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.397)
+}
+
+.a2 {
+    margin-top: 20px;
+    width: 18px;
+    border-bottom: 5px solid white;
+    transform: skewY(45deg);
+    display: inline-block;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.397)
 }
 
 .options {
@@ -151,12 +181,13 @@
 }
 
 .panel {
-    margin-top: -3em;
+    margin-top: -4em;
     margin-left: 16em;
-    width: 400px;
-    height: 150px;
+    width: 450px;
+    height: 200px;
     border: 2px solid whitesmoke;
     animation: fadeIn ease-in 1s;
+    box-shadow: 2mm 2mm rgba(0, 0, 0, 0.171);
 }
 
 .panel[fadeout="1"] {
