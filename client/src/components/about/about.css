@@ -57,21 +57,21 @@
 }
 
 .a1 {
-    margin-top: 20px;
+    margin-top: 18px;
     width: 18px;
-    border-bottom: 5px solid white;
+    border-bottom: 8px solid white;
     transform: skewY(-45deg);
     display: inline-block;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.397)
+    box-shadow: 2px 5px rgba(0, 0, 0, 0.397)
 }
 
 .a2 {
-    margin-top: 20px;
+    margin-top: 18px;
     width: 18px;
-    border-bottom: 5px solid white;
+    border-bottom: 8px solid white;
     transform: skewY(45deg);
     display: inline-block;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.397)
+    box-shadow: 1px 3px rgba(0, 0, 0, 0.397)
 }
 
 .options {
@@ -181,10 +181,10 @@
 }
 
 .panel {
-    margin-top: -4em;
-    margin-left: 16em;
-    width: 450px;
-    height: 200px;
+    margin-top: -6em;
+    margin-left: 12em;
+    width: 650px;
+    height: 280px;
     border: 2px solid whitesmoke;
     animation: fadeIn ease-in 1s;
     box-shadow: 2mm 2mm rgba(0, 0, 0, 0.171);
@@ -192,4 +192,26 @@
 
 .panel[fadeout="1"] {
     animation: fadeOut ease-out 1s;
+}
+
+.webdev {
+    display: inline;
+}
+
+.webexp {
+    margin-left: 5px;
+    font-size: 16px;
+    display: inline-block;
+    transition: 00.4s;
+}
+
+.webexp:hover {
+    font-size: 20px;
+    font-weight: bold;
+    color: mediumblue;
+    transition: 0.4s;
+}
+
+.top {
+    margin-top: -0.5em;
 }
