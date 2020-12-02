@@ -27,6 +27,7 @@ async function scrapeGoogle(page, ytResultList){
 async function goToResultsGoogle(page, ytResult) {
     if(typeof(ytResult) != "string"){
         return null;
+        console.log("Not string -google")
     }
     else{
         await page.type("input.gLFyf.gsfi", ytResult + "lyrics");
@@ -53,6 +54,7 @@ async function goToResultsGoogle(page, ytResult) {
 async function goToResults(page, ytResult) {
     if(typeof(ytResult) != "string"){
         return null;
+        console.log("Not string - not google")
     }
     else {
         //Assumes were at a google search already
