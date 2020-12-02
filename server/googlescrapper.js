@@ -25,46 +25,56 @@ async function scrapeGoogle(page, ytResultList){
 //Take index 0 result from youtube and try to find title. If not successful, take second index and try again
 //Noticed that when the first index doesnt work, the second does or the third...
 async function goToResultsGoogle(page, ytResult) {
-    await page.type("input.gLFyf.gsfi", ytResult + "lyrics");
-
-    await page.$eval("input.gNO89b", elem => elem.click());
-
-    await page.waitForNavigation()
-        
-    var title = await evaluatePage(page);
-
-    if(title == null){
-        //In last case eval page using search without lyrics
-        await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
-        await page.type("input.gLFyf.gsfi", ytResult);
-        await page.$eval("button.Tg7LZd", elem => elem.click());
-        await page.waitForNavigation();
-        title = await evaluatePage(page);
+    if(typeof(ytResult) != "string"){
+        return null;
     }
+    else{
+        await page.type("input.gLFyf.gsfi", ytResult + "lyrics");
 
-    return await title;
+        await page.$eval("input.gNO89b", elem => elem.click());
+    
+        await page.waitForNavigation()
+            
+        var title = await evaluatePage(page);
+    
+        if(title == null){
+            //In last case eval page using search without lyrics
+            await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
+            await page.type("input.gLFyf.gsfi", ytResult);
+            await page.$eval("button.Tg7LZd", elem => elem.click());
+            await page.waitForNavigation();
+            title = await evaluatePage(page);
+        }
+    
+        return await title;
+    }
 }
 
 async function goToResults(page, ytResult) {
-    //Assumes were at a google search already
-    await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
-    await page.type("input.gLFyf.gsfi", ytResult + "lyrics");
-    await page.$eval("button.Tg7LZd", elem => elem.click());
-
-    await page.waitForNavigation()
-        
-    var title = await evaluatePage(page);
-
-    if(title == null){
-        //In last case eval page using search without lyrics
-        await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
-        await page.type("input.gLFyf.gsfi", ytResult);
-        await page.$eval("button.Tg7LZd", elem => elem.click());
-        await page.waitForNavigation();
-        title = await evaluatePage(page);
+    if(typeof(ytResult) != "string"){
+        return null;
     }
+    else {
+        //Assumes were at a google search already
+        await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
+        await page.type("input.gLFyf.gsfi", ytResult + "lyrics");
+        await page.$eval("button.Tg7LZd", elem => elem.click());
 
-    return await title;
+        await page.waitForNavigation()
+            
+        var title = await evaluatePage(page);
+
+        if(title == null){
+            //In last case eval page using search without lyrics
+            await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
+            await page.type("input.gLFyf.gsfi", ytResult);
+            await page.$eval("button.Tg7LZd", elem => elem.click());
+            await page.waitForNavigation();
+            title = await evaluatePage(page);
+        }
+
+        return await title;
+    }
 }
 
 async function evaluatePage(page) {

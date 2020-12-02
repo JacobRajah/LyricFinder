@@ -4,26 +4,26 @@ puppeteer = require('puppeteer');
 
 async function requestSongData(Track, Artist){
 
-    // Remove any unwanted characters
-    Track = Track.replace(/[^a-zA-Z ]/g, "");
-    Artist = Artist.replace(/[^a-zA-Z ]/g, "");
-
     var songData = {
         coverArt: null,
         lyrics: [],
         path: null
     }
     
+    if("Not found" == Track || "See results about" == Track){
+        songData.path = "Not found";
+        return songData;
+    }
+
+    // Remove any unwanted characters
+    Track = Track.replace(/[^a-zA-Z ]/g, "");
+    Artist = Artist.replace(/[^a-zA-Z ]/g, "");
+    
     const ACCESS_TOKEN = process.env.genius
     
     const headers = {
         Authorization: `Bearer ${ACCESS_TOKEN}`
     };
-    
-    if("Not found" == Track){
-        songData.path = "Not found";
-        return songData;
-    }
     
     Track = Track.replace(/\s/g, "%20");
     Artist = Artist.replace(/\s/g, "%20");
