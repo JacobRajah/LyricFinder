@@ -9,7 +9,6 @@ async function Main(page,lyrics){
         return ['Not found', ''];
     }
     var lst = await youtubeScrapper.youtube_api(lyrics);
-    console.log(lst)
     //Returns a list with song and artist
     var data =  await googleScrapper.scrapeGoogle(page, lst);
     return data;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TopBar from '../navbar/topbar';
 import './about.css'
+import './work.css'
 import '../home/home.css'
 
 function Media(props) {
@@ -69,7 +70,28 @@ function Work(props) {
     return (
         <div>
             <div className="panel">
-                <h3>Work</h3>
+                <h3>Work Experience</h3>
+                <span className="w1">
+                    <p className="experience">Controls Engineering Intern, MDA</p>
+                    <p className="dates">May-Aug 2020</p>
+                </span>
+                <ul className="notes">
+                    <li>Automated the production of object files for NASA’s simulators using Python</li>
+                    <li className="x">Used{<p className="webexp">Python</p>}
+                        {<p className="webexp">Java</p>}
+                        {<p className="webexp">C</p>}
+                    </li>
+                </ul>
+                <p className="dates-2">May-Aug 2019</p>
+                <ul className="notes">
+                    <li>Validated Canada Arm 3 prototypes by testing
+                     its ability to align autonomously from various 
+                     staring positions and in different lighting conditions</li>
+                    <li className="x">Used{<p className="webexp">LUA</p>}
+                        {<p className="webexp">MatLab</p>}
+                        {<p className="webexp">Bash</p>}
+                    </li>
+                </ul>                              
             </div>
             <span className="Next" onClick={() => props.backOptions()}>
                 <p className="a1"></p><p className="a2"></p>
@@ -96,6 +118,8 @@ function Education(props) {
         <div>
             <div className="panel">
                 <h3>Education</h3>
+                <h4>Ryerson University</h4>
+                <h4>Computer Science, BS</h4>
             </div>
             <span className="Next" onClick={() => props.backOptions()}>
                 <p className="a1"></p><p className="a2"></p>

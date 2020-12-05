@@ -1,0 +1,42 @@
+.w1 {
+    display: block;
+    margin-top: -1.5em;
+}
+
+.experience {
+    display: block;
+    float: left;
+    padding-left: 5%;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.dates {
+    display: block;
+    float: right;
+    padding-right: 5%;
+    font-size: 18px;
+}
+
+.notes {
+    display: block;
+    float: left;
+    padding-left: 13%;
+    font-family: 'Segoe UI';
+    font-size: 16px;
+    margin-top: -0.5em;
+}
+
+.x {
+    float: left;
+    margin-top: -0.8em;
+}
+
+.dates-2 {
+    margin-top: -0.8em;
+    display: block;
+    float: right;
+    padding-right: 5%;
+    font-size: 18px;
+}

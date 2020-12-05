@@ -16,10 +16,8 @@
 .Main {
     width: 450px;
     height: 100px;
+    margin:auto;
     margin-top: -3em;
-    margin-left: 17em;
-    display: block;
-    position: relative;
     overflow: hidden;
 }
 
@@ -188,6 +186,11 @@
     border: 2px solid whitesmoke;
     animation: fadeIn ease-in 1s;
     box-shadow: 2mm 2mm rgba(0, 0, 0, 0.171);
+    overflow: scroll;
+}
+
+.panel::-webkit-scrollbar { 
+    display: none;
 }
 
 .panel[fadeout="1"] {
