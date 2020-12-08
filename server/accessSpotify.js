@@ -1,12 +1,12 @@
 axios = require('axios');
-
+require('dotenv').config(); //set env
 async function getToken() {
     var token = await axios({
         url: 'https://accounts.spotify.com/api/token',
         method: 'post',
         auth: {
-            username: `b0890075013943d7b857475306c66bfe`,
-            password: `1910ca6d406a4d8488fb35a5c3b38313`
+            username: `${process.env.spotify_usr}`,
+            password: `${process.env.spotify_psw}`
         },
         params: {
             grant_type: 'client_credentials'
