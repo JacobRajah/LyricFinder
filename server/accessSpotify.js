@@ -1,5 +1,8 @@
 axios = require('axios');
 require('dotenv').config(); //set env
+const MongoClient = require('mongodb').MongoClient;
+const uri = process.env.DB;
+
 async function getToken() {
     var token = await axios({
         url: 'https://accounts.spotify.com/api/token',
@@ -38,7 +41,6 @@ async function getPlaylistID(token, playlist) {
     }
     
 }
-// tk = 'BQBLsphIE0Nci4qogTxpINB19tmfuStViUJ1887LJ3A60x9GQ_7kxX5wLkBIpuvXEMdoZzUQLFToQmUxKhg'
 // getPlaylistID(tk, 'Rap%20Caviar').then(res => console.log(res)).catch(err => console.log(err))
 
 // pid = '37i9dQZF1DX0XUsuxWHRQd'
@@ -63,35 +65,71 @@ async function getPlaylistContent(token, pid) {
 
 // getPlaylistContent(tk, pid).then(res => console.log(res)).catch(err => console.log(err))
 
-async function formatTracks(tracks) {
-    track = tracks[2].track
-    name = track.name
-    artist = (track.artists).map(value => value.name)
-    id = track.id
-    image = (track.album.images[0].url)
-    return {'name': name, 'artist': artist, 'id': id, 'image': image}
+async function formatTracks(tracks, token) {
+    var pdata = [];
+    for(var i = 0; i < tracks.length; i++){
+        try{
+            var id = tracks[i].track.id
+            var trackData = await getTrackData(token, id);
+            pdata.push(trackData);
+        }     
+        catch{
+            continue;
+        }
+    }
+    return await pdata;
 }
-
-async function accessSpotify() {
-    var token = await getToken();
-    console.log(token)
-    var playlists = ["Rap%20Caviar", "Hot%20Hits%20Canada", "Christmas%20Hits", "Rock%20Classics"]
-    var pid = await getPlaylistID(token, playlists[0]);
-    var tracks = await getPlaylistContent(token, pid);
-    return await formatTracks(tracks);
-}
-
-// accessSpotify().then(res => console.log(res)).catch(err => console.log(err))
 
 async function getTrackData(token, tid) {
-    track = await axios({
+    var track = await axios({
         method: 'get',
         url: `https://api.spotify.com/v1/tracks/${tid}`,
         headers: {
             Authorization: `Bearer ${token}`
         }
     });
-    return await track.data.preview_url;
+    track = track.data;
+    var artist = (track.artists).map(value => value.name);
+    image = (track.album.images[0].url);
+    return {'name': track.name, 'artist': artist, 'id': tid, 'image': image, 'preview': track.preview_url}
 }
 
-getTrackData('BQBIpAfHgcnvGGOdKCPhNop7yWEsdVnos8MfdzIAtpQu8jSYE_g4e7OuD8I32X2LVWMTkfrSImmlQqgLqGQ', '0k7wmahjkn389wAZdz19Cv').then(res => console.log(res)).catch(err => console.log(err))
+async function accessSpotify(pname) {
+    p = encodeURIComponent(pname.trim())
+    var token = await getToken();
+    // var playlists = ["Rap%20Caviar", "Hot%20Hits%20Canada", "Christmas%20Hits", "Rock%20Classics"]
+    var pid = await getPlaylistID(token, p);
+    var tracks = await getPlaylistContent(token, pid);
+    const formatted = await formatTracks(tracks, token);
+    return {_id: pname, pname: formatted}
+}
+
+// Write playlist data to database
+async function savePlaylist(pname) {
+    const playlist = await accessSpotify(pname);
+    MongoClient.connect(uri, function(err,db) {
+        if (err) throw err
+        var dbo = db.db('LyricFynder');
+        dbo.collection("Playlists").insertOne(playlist, function(err,res){
+            if (err) throw err
+            console.log("Insert Successful")
+        });
+
+        db.close();
+    });
+}
+
+// Delete playlist data from database
+function deletePlaylistDB(playlist) {
+    MongoClient.connect(uri, function(err, db){
+        if (err) throw err
+        var dbo = db.db('LyricFynder')
+        dbo.collection('Playlists').deleteOne(playlist, function(err, res){
+            console.log(`${playlist._id} deleted`);
+            db.close();
+        });
+    })
+}
+
+savePlaylist("Rock Classics")
+//  deletePlaylistDB({_id: 'Rap Caviar'})
