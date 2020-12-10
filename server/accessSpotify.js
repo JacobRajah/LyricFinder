@@ -101,7 +101,7 @@ async function accessSpotify(pname) {
     var pid = await getPlaylistID(token, p);
     var tracks = await getPlaylistContent(token, pid);
     const formatted = await formatTracks(tracks, token);
-    return {_id: pname, pname: formatted}
+    return {_id: pname, tracks: formatted}
 }
 
 // Write playlist data to database
@@ -131,5 +131,18 @@ function deletePlaylistDB(playlist) {
     })
 }
 
-savePlaylist("Rock Classics")
-//  deletePlaylistDB({_id: 'Rap Caviar'})
+// Get the playlist specified data
+function getPlaylistDB(playlist) {
+    MongoClient.connect(uri, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db('LyricFynder');
+        dbo.collection('Playlists').findOne(playlist, function(err, res){
+            console.log(res)
+        })
+        db.close()
+    })
+}
+
+ savePlaylist("Rock Classics")
+//  deletePlaylistDB({_id: 'p2'})
+//  getPlaylistDB({_id: 'Rap Caviar'})

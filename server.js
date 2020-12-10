@@ -9,6 +9,7 @@ var path = require('path');
 
 //---------Scrape setup------------
 const puppeteer = require('puppeteer');
+const { url } = require('inspector');
 var page;
 //---------------------------------
 
@@ -70,6 +71,20 @@ app.get('/topcharts', (req, res) => {
         })
     
     });
+})
+
+app.get('/trending', (req, res) => {
+    // playlist saved in request body under variable playlist
+    const plist_request = (req.body).playlist;
+    MongoClient.connect(process.env.DB, function(err, db) {
+        if (err) throw err;
+        const dbo = db.db('LyricFynder');
+        dbo.collection('Playlists').findOne({_id: plist_request}, function(err, data){
+            if (err) throw err;
+            res.json(data);
+            db.close();
+        })
+    })
 })
 //------------------------------------------------------------
 
