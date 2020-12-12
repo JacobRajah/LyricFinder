@@ -12,3 +12,69 @@
     min-height: 100vh;
     padding-top: 14em;
 }
+
+.plate {
+    width: 16em;
+    height: 24em;
+    border-radius: 25px;
+    background-color: #282c34;
+    margin-left: 5em;
+    margin-top: -5em;
+}
+
+.headimg {
+    width: 16em;
+    height: 8em;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.Track {
+    background-color: rgba(0, 0, 0, 0.199);
+    margin-left: -1px;
+    width: 14em;
+    height: 4em;
+    transition: ease-out 0.2s;
+    display: inline-block;
+}
+
+.Track:hover {
+    width: 14.1em;
+    height: 4.1em;
+    transition: ease-in 0.1s;
+}
+
+.cover {
+    margin-top: -12px;
+    width: 3em;
+    height: 3em;
+    display: inline;
+}
+
+.playbutton {
+    display: inline-block;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    border: 2px solid rgb(8, 189, 8);
+    margin-top: 1em;
+    margin-left: 6em;
+}
+
+.p1 {
+    margin-top: 14px;
+    margin-left: 18px;
+    border-bottom: 3px solid white;
+    width: 0.7em;
+    height: 1px;
+    transform: skewY(35deg);
+}
+
+.p2 {
+    margin-top: -14px;
+    margin-left: 18px;
+    border-bottom: 3px solid white;
+    width: 0.7em;
+    height: 1px;
+    transform: skewY(-35deg);
+}

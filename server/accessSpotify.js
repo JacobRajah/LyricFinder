@@ -56,7 +56,7 @@ async function getPlaylistContent(token, pid) {
     });
     
     try {
-        return resp.data.tracks.items//track.artists;
+        return [resp.data.tracks.items, resp.data.images[0].url];
     }
     catch {
         return [];
@@ -100,13 +100,19 @@ async function accessSpotify(pname) {
     // var playlists = ["Rap%20Caviar", "Hot%20Hits%20Canada", "Christmas%20Hits", "Rock%20Classics"]
     var pid = await getPlaylistID(token, p);
     var tracks = await getPlaylistContent(token, pid);
-    const formatted = await formatTracks(tracks, token);
-    return {_id: pname, tracks: formatted}
+    if (tracks != []){
+        const formatted = await formatTracks(tracks[0], token);
+        return {_id: pname, url: tracks[1], tracks: formatted}
+    }
+    return undefined;
 }
 
 // Write playlist data to database
 async function savePlaylist(pname) {
     const playlist = await accessSpotify(pname);
+    if(playlist == undefined){
+        return "ERROR";
+    }
     MongoClient.connect(uri, function(err,db) {
         if (err) throw err
         var dbo = db.db('LyricFynder');
@@ -143,6 +149,6 @@ function getPlaylistDB(playlist) {
     })
 }
 
- savePlaylist("Rock Classics")
-//  deletePlaylistDB({_id: 'p2'})
-//  getPlaylistDB({_id: 'Rap Caviar'})
+//  savePlaylist("Christmas Hits")
+//  deletePlaylistDB({_id: 'Rap Caviar'})
+ getPlaylistDB({_id: 'Christmas Hits'})
