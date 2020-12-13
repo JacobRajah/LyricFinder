@@ -19,7 +19,13 @@
     border-radius: 25px;
     background-color: #282c34;
     margin-left: 5em;
-    margin-top: -5em;
+    margin-top: -13em;
+    padding-bottom: 20px;
+    overflow: scroll;
+}
+
+.plate::-webkit-scrollbar {
+    display: none;
 }
 
 .headimg {
@@ -34,47 +40,80 @@
     margin-left: -1px;
     width: 14em;
     height: 4em;
-    transition: ease-out 0.2s;
     display: inline-block;
-}
-
-.Track:hover {
-    width: 14.1em;
-    height: 4.1em;
-    transition: ease-in 0.1s;
+    /* overflow: hidden; */
 }
 
 .cover {
     margin-top: -12px;
+    margin-left: -3%;
     width: 3em;
     height: 3em;
+    display: inline;
+}
+
+.image-track {
     display: inline;
 }
 
 .playbutton {
     display: inline-block;
     border-radius: 50%;
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
     border: 2px solid rgb(8, 189, 8);
-    margin-top: 1em;
-    margin-left: 6em;
+    margin-top: -2em;
+    margin-left: 7em;
+    transition: ease-in-out 0.1s; 
+}
+
+.playbutton:hover {
+    background-color: rgb(8, 189, 8);
+    transition: ease-in-out 0.01s; 
 }
 
 .p1 {
-    margin-top: 14px;
-    margin-left: 18px;
+    margin-top: 10px;
+    margin-left: 14px;
     border-bottom: 3px solid white;
-    width: 0.7em;
+    width: 0.5em;
     height: 1px;
     transform: skewY(35deg);
 }
 
 .p2 {
-    margin-top: -14px;
-    margin-left: 18px;
+    margin-top: -19px;
+    margin-left: 14px;
     border-bottom: 3px solid white;
-    width: 0.7em;
+    width: 0.5em;
     height: 1px;
     transform: skewY(-35deg);
+}
+
+.p3 {
+    border-right: 2px solid white;
+    width: 1em;
+    height: 19px;
+    margin-top: -39px;
+    margin-left: -10px;
+}
+
+.name-trending {
+    position: absolute;
+    margin-left: 8em;
+    font-size: 12px;
+}
+
+.artist-trending {
+    position: absolute;
+    font-size: 12px;
+    margin-left: 8em;
+    margin-top: 3.5em;
+}
+
+.track-data-trending {
+    
+    position: relative;
+    width: 14em;
+    height: 2.5em;
 }
