@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import TopBar from '../navbar/topbar';
 import './trending.css'
 import '../home/home.css'
+import Axios from 'axios';
 
 function PlaylistPlate(props) {
     return(
         <div className="plate">
             <div className="headline">
-                <img src="https://i.scdn.co/image/ab67706f00000003f04cbd323e0edd1b19ef58bb" className="headimg" alt="header"></img>
+                <img src={props.coverHead} className="headimg" alt="header"></img>
             </div>
             <Tracks charts={props.charts}
                     playSnippet={props.playSnippet}></Tracks>
@@ -36,16 +37,16 @@ function Tracks(props) {
 function Track(props) {
     return(
         <div>
-            <div className="Track">
+            <div className="Track-trending">
                 <div className="image-track">
-                    <img src={props.cover} className="cover" alt="cover"></img>
+                    <img src={props.cover} className="cover-trending" alt="cover"></img>
                 </div>
                 <div className="track-data-trending">
                     <p className="name-trending">{props.name}</p>
                     <p className="artist-trending">{props.artist}</p>
                 </div>
                 <span className="playbutton" onClick={() => props.playSnippet(props.preview)}>
-                    <p className="p1"></p><p className="p2"></p><p className="p3"></p>
+                    <div className="arrow-right"></div>
                 </span>
             </div>
         </div>
@@ -60,39 +61,44 @@ class Trending extends Component {
             obtained: false,
             playing: false,
             audio: undefined,
-            curr_prev: undefined
+            curr_prev: undefined,
+            p1_ready: false,
+            p2_ready: false
         }
-        this.playlist1 = [
-            {
-                name: 'All I Want for Christmas Is You',
-                artist: ["Mariah Carey"],
-                id: '0bYg9bo50gSsH3LtXe2SQn',
-                image: 'https://i.scdn.co/image/ab67616d0000b2734246e3158421f5abb75abc4f',
-                preview: 'https://p.scdn.co/mp3-preview/bbafd15ff484394a0ca106d5fef0a81eeea4ef5b?cid=b0890075013943d7b857475306c66bfe'
-              },
-            {
-                name: "It's the Most Wonderful Time of the Year",
-                artist: ["Andy Williams"],
-                id: '5hslUAKq9I9CG2bAulFkHN',
-                image: 'https://i.scdn.co/image/ab67616d0000b27398073965947f92f1641b8356',
-                preview: 'https://p.scdn.co/mp3-preview/b7f07feff3ed976d9e0fd53ba7e295e1782e4299?cid=b0890075013943d7b857475306c66bfe'
-              },
-            {
-                name: "It's Beginning to Look a Lot like Christmas",
-                artist: ["Michael Bublé"],
-                id: '0bYg9bo50gSsH3LtXe2SQn',
-                image: 'https://i.scdn.co/image/ab67616d0000b273119e4094f07a8123b471ac1d',
-                preview: 'https://p.scdn.co/mp3-preview/798a8bc5a7a95ccad75648a63bc50aa755dc2289?cid=b0890075013943d7b857475306c66bfe'
-              },
-            {
-                name: "Sleigh Ride",
-                artist: ["The Ronettes"],
-                id: '0bYg9bo50gSsH3LtXe2SQn',
-                image: 'https://i.scdn.co/image/ab67616d0000b273adad4220d51bd720481d4be4',
-                preview: 'https://p.scdn.co/mp3-preview/af8102ee02140590690efefd229d2182e5216ec5?cid=b0890075013943d7b857475306c66bfe'
-              }
-        ];
+        this.playlist1 = {
+            name: null,
+            url: null,
+            tracks: []
+        };
+        this.playlist2 = {
+            name: null,
+            url: null,
+            tracks: []
+        }
         this.playSnippet = this.playSnippet.bind(this);
+    }
+
+    componentDidMount() {
+        this.getPlaylist1('Christmas Hits');
+        this.getPlaylist2('Rap Caviar');
+    }
+
+    getPlaylist1 = (pname) => {
+        Axios.post('/trending', {playlist: pname}).then(res => {
+            this.playlist1.tracks = res.data.tracks;
+            this.playlist1.name = res.data._id;
+            this.playlist1.url = res.data.url;
+            this.setState({p1_ready: true});
+        });
+    }
+
+    getPlaylist2 = (pname) => {
+        Axios.post('/trending', {playlist: pname}).then(res => {
+            this.playlist2.tracks = res.data.tracks;
+            this.playlist2.name = res.data._id;
+            this.playlist2.url = res.data.url;
+            this.setState({p2_ready: true});
+        });
     }
 
     playSnippet = (url) => {
@@ -123,8 +129,12 @@ class Trending extends Component {
                 </div>
                 <div className="App-header">
                     <div className="trending">
-                        <PlaylistPlate charts={this.playlist1}
-                                       playSnippet={this.playSnippet}></PlaylistPlate>
+                        {this.state.p1_ready ? <PlaylistPlate charts={this.playlist1.tracks}
+                                       playSnippet={this.playSnippet}
+                                       coverHead={this.playlist1.url}></PlaylistPlate> : null}
+                        {this.state.p2_ready ? <PlaylistPlate charts={this.playlist2.tracks}
+                                       playSnippet={this.playSnippet}
+                                       coverHead={this.playlist2.url}></PlaylistPlate> : null}
                     </div>
                 </div>
             </div>

@@ -73,7 +73,7 @@ app.get('/topcharts', (req, res) => {
     });
 })
 
-app.get('/trending', (req, res) => {
+app.post('/trending', (req, res) => {
     // playlist saved in request body under variable playlist
     const plist_request = (req.body).playlist;
     MongoClient.connect(process.env.DB, function(err, db) {

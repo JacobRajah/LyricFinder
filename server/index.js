@@ -1,4 +1,4 @@
-//Main Frame for API scrapping work
+//Main Frame for scrapping work
 
 const googleScrapper = require('./googlescrapper');
 const youtubeScrapper = require('./youtubescrapper');

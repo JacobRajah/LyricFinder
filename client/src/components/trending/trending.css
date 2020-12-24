@@ -18,10 +18,11 @@
     height: 24em;
     border-radius: 25px;
     background-color: #282c34;
-    margin-left: 5em;
+    margin-left: 2em;
     margin-top: -13em;
     padding-bottom: 20px;
     overflow: scroll;
+    display: inline-block;
 }
 
 .plate::-webkit-scrollbar {
@@ -35,21 +36,25 @@
     border-top-right-radius: 25px;
 }
 
-.Track {
+.Track-trending {
     background-color: rgba(0, 0, 0, 0.199);
     margin-left: -1px;
     width: 14em;
     height: 4em;
     display: inline-block;
     /* overflow: hidden; */
+    margin-top: 1em;
 }
 
-.cover {
+.cover-trending {
     margin-top: -12px;
     margin-left: -3%;
     width: 3em;
     height: 3em;
-    display: inline;
+    float: left;
+    padding-left: 1em;
+    padding-top: 1em;
+
 }
 
 .image-track {
@@ -72,30 +77,15 @@
     transition: ease-in-out 0.01s; 
 }
 
-.p1 {
-    margin-top: 10px;
-    margin-left: 14px;
-    border-bottom: 3px solid white;
-    width: 0.5em;
-    height: 1px;
-    transform: skewY(35deg);
-}
-
-.p2 {
-    margin-top: -19px;
-    margin-left: 14px;
-    border-bottom: 3px solid white;
-    width: 0.5em;
-    height: 1px;
-    transform: skewY(-35deg);
-}
-
-.p3 {
-    border-right: 2px solid white;
-    width: 1em;
-    height: 19px;
-    margin-top: -39px;
-    margin-left: -10px;
+.arrow-right {
+    margin-top: 9px;
+    margin-left: 7px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px transparent;
+    border-right: 15px solid white;
+    transform: rotateZ(-45deg)
 }
 
 .name-trending {

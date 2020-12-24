@@ -8,7 +8,7 @@ async function getBillboard() {
     const browser = await puppeteer.launch({ args: ['--no-sandbox']});
     const page = await browser.newPage();
     await page.goto(url); //At Billboard top 100
-
+    // Scrape the billboard page for the top 100 songs
     var billboard = await page.evaluate(() => {
         var strcharts;
 
@@ -26,6 +26,7 @@ async function getBillboard() {
 
     });
     await browser.close();
+    // Format scraped data
     try {
         return orderData(billboard)
     }
@@ -35,7 +36,7 @@ async function getBillboard() {
     }
     
 }
-
+// Formats scraped data for client
 async function orderData(billboardLst) {
 
     charts = [];
@@ -52,6 +53,7 @@ async function orderData(billboardLst) {
     
 }
 
+// Get the correlating cover art from Genius.com
 async function getCoverArt(Track) {
     coverArt = null
 
