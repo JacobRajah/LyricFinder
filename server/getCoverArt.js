@@ -1,3 +1,5 @@
+// Function responsible for scrapping Genius.com 
+// Not in use currently
 const puppeteer = require('puppeteer');
 
 async function getCoverArt(SongName, Artist) {

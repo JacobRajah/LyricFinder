@@ -105,7 +105,7 @@ async function evaluatePage(page) {
             });
             return found;
         });
-
+        // Executed only if the result is found
         if(result){
             await page.waitForSelector('div.info-text');
 

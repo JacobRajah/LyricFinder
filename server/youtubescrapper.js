@@ -1,8 +1,8 @@
 const YouTube = require('simple-youtube-api');
 
+// Uses the youtube api to find results based on lyrics
 async function youtube_api(lyrics) {
-    // 1. AIzaSyCL68zGM27EqDKlRh7XSJe9tiDrZIMELVo
-    // 2. AIzaSyD2ILvVYnwZSJVO1sWJh9V4KpqusyfJwi0
+    
     const youtube = new YouTube(process.env.youtube);
 
     try{

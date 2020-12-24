@@ -1,7 +1,7 @@
 axios = require('axios');
 puppeteer = require('puppeteer');
 
-
+// Get in-depth infornation on a song based on track name and artist
 async function requestSongData(Track, Artist){
 
     var songData = {
