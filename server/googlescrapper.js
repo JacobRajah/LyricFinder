@@ -40,7 +40,7 @@ async function goToResultsGoogle(page, ytResult) {
     
         if(title == null){
             //In last case eval page using search without lyrics
-            await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
+            await page.$eval("div.BKRPef.M2vV3", elem => elem.click());
             await page.type("input.gLFyf.gsfi", ytResult);
             await page.$eval("button.Tg7LZd", elem => elem.click());
             await page.waitForNavigation();
@@ -58,7 +58,7 @@ async function goToResults(page, ytResult) {
     }
     else {
         //Assumes were at a google search already
-        await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
+        await page.$eval("div.BKRPef.M2vV3", elem => elem.click());
         await page.type("input.gLFyf.gsfi", ytResult + "lyrics");
         await page.$eval("button.Tg7LZd", elem => elem.click());
 
@@ -68,7 +68,7 @@ async function goToResults(page, ytResult) {
 
         if(title == null){
             //In last case eval page using search without lyrics
-            await page.$eval("div.clear-button.XoaYSb", elem => elem.click());
+            await page.$eval("div.BKRPef.M2vV3", elem => elem.click());
             await page.type("input.gLFyf.gsfi", ytResult);
             await page.$eval("button.Tg7LZd", elem => elem.click());
             await page.waitForNavigation();
